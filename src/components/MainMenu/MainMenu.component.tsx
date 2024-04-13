@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Link, Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import { PiHamburger } from "react-icons/pi";
 import { CgClose } from "react-icons/cg";
 
@@ -15,30 +15,38 @@ const MainMenu = () => {
 
 	return (
 		<>
-			<nav className={`main-menu ${isMenuOpen ? "open" : ""}`}>
-				<div className={`menu-icon ${isMenuOpen ? "" : "centered"}`} onClick={toggleMenu}>
+			<nav className={`main-menu ${isMenuOpen ? "open" : ""}`} role="menu">
+				<div
+					className={`menu-icon ${isMenuOpen ? "" : "centered"}`}
+					onClick={toggleMenu}
+				>
 					{isMenuOpen ? <CgClose /> : <PiHamburger />}
+				</div>
+				<div className="siteNmae">
+					<NavLink to={"/"} onClick={toggleMenu} role="menuitem">
+						Camilo Pinzón
+					</NavLink>
 				</div>
 				<ul className={`${isMenuOpen ? "open" : ""}`}>
 					<li>
-						<Link to={"/"} onClick={toggleMenu}>
+						<NavLink to={"/"} onClick={toggleMenu} role="menuitem">
 							About
-						</Link>
+						</NavLink>
 					</li>
 					<li>
-						<Link to={"/experience"} onClick={toggleMenu}>
+						<NavLink to={"/experience"} onClick={toggleMenu} role="menuitem">
 							Experience
-						</Link>
+						</NavLink>
 					</li>
 					<li>
-						<Link to={"/pills"} onClick={toggleMenu}>
+						<NavLink to={"/pills"} onClick={toggleMenu} role="menuitem">
 							Pills
-						</Link>
+						</NavLink>
 					</li>
 					<li>
-						<Link to={"/contact"} onClick={toggleMenu}>
+						<NavLink to={"/contact"} onClick={toggleMenu} role="menuitem">
 							Contact
-						</Link>
+						</NavLink>
 					</li>
 				</ul>
 			</nav>
