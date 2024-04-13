@@ -50,7 +50,9 @@ const MainMenu = () => {
 					</li>
 				</ul>
 			</nav>
-			<Outlet />
+			<div className="outlet">
+				<Outlet />
+			</div>
 		</>
 	);
 };

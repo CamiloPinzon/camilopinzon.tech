@@ -1,8 +1,12 @@
+import Greeting from "../../components/greeting/Greeting.component";
+import Introduction from "../../components/introduction/introduction.component";
+
 const AboutPage = () => {
 	return (
-		<div>
-			<h1>About</h1>
-		</div>
+		<main className="about-page">
+			<Greeting />
+			<Introduction />
+		</main>
 	);
 };
 

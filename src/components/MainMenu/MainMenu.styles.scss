@@ -1,19 +1,17 @@
 .main-menu {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 20px;
+    background-color: rgb(7, 2, 13);
 
     .siteNmae {
         padding: 10px;
 
         a {
-            color: #333;
+            color: #007bff;
             text-decoration: none;
             transition: color 0.3s ease;
-
-            &:hover {
-                color: #007bff;
-            }
         }
     }
 
@@ -38,7 +36,7 @@
             margin: 0 10px;
 
             a {
-                color: #333;
+                color: #FFF;
                 text-decoration: none;
                 transition: color 0.3s ease;
 
@@ -49,6 +47,11 @@
             }
         }
     }
+}
+
+.outlet {
+    background-color: #f8f9fa;
+    padding-block: 30px;
 }
 
 .centered {
@@ -69,7 +72,6 @@
             justify-content: center;
 
             a {
-                color: #333;
                 text-decoration: none;
                 transition: color 0.3s ease;
 
@@ -103,10 +105,6 @@
 
         li {
             margin: 10px 0;
-
-            a {
-                color: #333;
-            }
         }
     }
 }
