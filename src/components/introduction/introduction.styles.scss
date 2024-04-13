@@ -59,6 +59,11 @@
     .introduction {
         &__item {
             flex: 1 1 100%;
+            padding-inline: 20px;
+
+            & img {
+                width: 100%;
+            }
         }
     }
 }
