@@ -46,6 +46,12 @@
             margin-top: 20px;
             cursor: pointer;
         }
+
+        &__btn:hover {
+            background-color: #0069d9;
+            color: #FFF;
+            transition: background-color 0.3s ease;
+        }
     }
 }
 

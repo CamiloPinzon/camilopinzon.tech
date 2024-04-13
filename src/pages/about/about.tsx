@@ -1,6 +1,7 @@
 import Greeting from "../../components/greeting/Greeting.component";
 import Introduction from "../../components/introduction/introduction.component";
 import Divisor from "../../components/divisor/divisor.component";
+import TechnicalStack from "../../components/technical-stack/technicalStack.component";
 
 const AboutPage = () => {
 	return (
@@ -8,6 +9,7 @@ const AboutPage = () => {
 			<Greeting />
 			<Introduction />
 			<Divisor />
+			<TechnicalStack />
 		</main>
 	);
 };
