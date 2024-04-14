@@ -2,7 +2,6 @@
 title: "How to Build a React App"
 date: "2024-04-15"
 author: "Your Name"
-tags: ["React", "Web Development"]
 ---
 
 # How to Build a React App

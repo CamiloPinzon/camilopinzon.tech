@@ -24,6 +24,7 @@
         cursor: pointer;
         transform: translate(-49%, 0%);
         transition: transform 0.3s ease;
+        color: #FFF;
     }
 
     ul {
@@ -62,7 +63,6 @@
 @media (max-width: 768px) {
     .main-menu {
         display: flex;
-        background-color: #f8f9fa;
         flex-direction: column;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         padding: 10px;
