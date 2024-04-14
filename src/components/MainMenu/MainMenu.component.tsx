@@ -4,6 +4,8 @@ import { Outlet, NavLink } from "react-router-dom";
 import { PiHamburger } from "react-icons/pi";
 import { CgClose } from "react-icons/cg";
 
+import Footer from "../Footer/footer.component";
+
 import "./MainMenu.styles.scss";
 
 const MainMenu = () => {
@@ -53,6 +55,7 @@ const MainMenu = () => {
 			<div className="outlet">
 				<Outlet />
 			</div>
+			<Footer />
 		</>
 	);
 };
