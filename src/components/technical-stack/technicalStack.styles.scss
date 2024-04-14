@@ -1,6 +1,10 @@
 .technical-container {
     display: flex;
     flex-direction: column;
+    max-width: 1024px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
 
     h2 {
         text-align: center;
