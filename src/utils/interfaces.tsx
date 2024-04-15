@@ -5,3 +5,10 @@ export interface IExperienceData {
     responsibilities: string[];
     dates: string;
 }
+
+export interface IArticle {
+    author: string;
+    content: string;
+    date: string;
+    title: string;
+}
