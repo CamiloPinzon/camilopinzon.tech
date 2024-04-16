@@ -9,7 +9,7 @@ export const EmailSender = async (contactData: IContactForm) => {
             method: "POST",
             mode: "no-cors",
 			headers: {
-				Autorization: `Bearer ${sendGridKey}`,
+				Autorization: `${sendGridKey}`,
 			},
 			body: JSON.stringify({
 				personalizations: [
