@@ -5,6 +5,7 @@ import { PiHamburger } from "react-icons/pi";
 import { CgClose } from "react-icons/cg";
 
 import Footer from "../Footer/footer.component";
+import GoogleTerms from "../googleTerms/googleTerms";
 
 import "./MainMenu.styles.scss";
 
@@ -55,6 +56,7 @@ const MainMenu = () => {
 			<div className="outlet">
 				<Outlet />
 			</div>
+			<GoogleTerms />
 			<Footer />
 		</>
 	);
