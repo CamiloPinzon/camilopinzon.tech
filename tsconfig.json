@@ -23,4 +23,5 @@
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "assetsInclude": ["**/*.svg"],
+  "files":["globals.d.ts"]
 }

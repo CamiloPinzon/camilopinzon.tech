@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ReCAPTCHA } from 'react-google-recaptcha';
+import { ReCAPTCHA } from "react-google-recaptcha";
 
 import InputComponent from "../inputComponent/inputComponent";
 import MainButton from "../mainButton/mainButton";
@@ -72,6 +72,11 @@ const ContactForm = () => {
 				required={true}
 			/>
 			<MainButton type="submit" text="Submit" />
+			<div className="captchaLegal">
+				This site is protected by reCAPTCHA and the Google
+				<a href="https://policies.google.com/privacy">Privacy Policy</a> and
+				<a href="https://policies.google.com/terms">Terms of Service</a> apply.
+			</div>
 		</form>
 	);
 };
