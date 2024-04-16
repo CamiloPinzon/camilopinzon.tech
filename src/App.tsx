@@ -6,6 +6,7 @@ import Experience from "./pages/experience/experience";
 import Pills from "./pages/pills/pills";
 import BlogArticle from "./components/blogArticle/blogArticle.component";
 import PillsPreview from "./components/pillsPreview/pillsPreview.component";
+import Contact from "./pages/contact/contact";
 function App() {
 	return (
 		<Routes>
@@ -16,6 +17,7 @@ function App() {
 					<Route index element={<PillsPreview />} />
 					<Route path=":id" element={<BlogArticle />} />
 				</Route>
+				<Route path="contact" element={<Contact />} />
 			</Route>
 		</Routes>
 	);

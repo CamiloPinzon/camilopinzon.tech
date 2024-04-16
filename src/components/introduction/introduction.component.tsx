@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
+import MainButton from "../mainButton/mainButton";
+
 import ProfilePicture from "../../assets/profile-pic.webp";
 import "./introduction.styles.scss";
 
 const Introduction = () => {
+	const Navigate = useNavigate();
+	const handleButtonClick = () => {
+		Navigate("/contact");
+	};
 	return (
 		<section className="introduction">
 			<div className="introduction__item">
@@ -16,7 +24,7 @@ const Introduction = () => {
 						solutions for all the possible problems that can happen in all the
 						project stages and brings calm to the customer.
 					</p>
-					<button className="introduction__item__btn">{"Get in touch"}</button>
+					<MainButton text={"Get in touch"} handler={handleButtonClick} />
 				</div>
 			</div>
 		</section>

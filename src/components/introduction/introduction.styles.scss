@@ -32,26 +32,6 @@
             border-radius: 50%;
             box-shadow: rgba(0, 0, 0, 0.5) 4px 5px 9px 0px;
         }
-
-        &__btn {
-            background-color: #007bff;
-            color: #FFF;
-            padding: 10px 20px;
-            border: none;
-            font-size: 1.5rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.65);
-            box-shadow: 6px 4px 17px 2px rgba(0, 0, 0, 0.78);
-            -webkit-box-shadow: 2px 4px 6px 1px rgba(0, 0, 0, 0.78);
-            -moz-box-shadow: 6px 4px 17px 2px rgba(0, 0, 0, 0.78);
-            margin-top: 20px;
-            cursor: pointer;
-        }
-
-        &__btn:hover {
-            background-color: #0069d9;
-            color: #FFF;
-            transition: background-color 0.3s ease;
-        }
     }
 }
 
