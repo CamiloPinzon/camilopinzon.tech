@@ -14,6 +14,7 @@ const EmailSender = async (emailData: IContactForm) => {
 		to: "pinzonac@gmail.com",
 		subject: "New contact from web Page",
 		html: `${ContactEmailTemplate(emailData)}`,
+		headers: { mode: "no-cors" },
 	};
 
 	try {
