@@ -1,44 +1,28 @@
-import { IContactForm } from "../../utils/interfaces";
+import { MailDataRequired, MailService } from "@sendgrid/mail";
 
-import ContactEmailTemplate from "../../utils/email/contactEmailTemplate/contactEmailTemplate";
+import { IContactForm } from "../interfaces.tsx";
+import ContactEmailTemplate from "./contactEmailTemplate/contactEmailTemplate.tsx";
 
-export const EmailSender = async (contactData: IContactForm) => {
-    const sendGridKey = process.env.SENDGRID_API_KEY;
+const EmailSender = async (emailData: IContactForm) => {
+	const sendGrid = new MailService();
+
+	const configureSendGrid = () => {
+		return sendGrid.setApiKey(`${process.env.SENDGRID_API_KEY}`);
+	};
+	const msg: MailDataRequired = {
+		from: "pinzonac@gmail.com",
+		to: "pinzonac@gmail.com",
+		subject: "New contact from web Page",
+		html: `${ContactEmailTemplate(emailData)}`,
+	};
+
 	try {
-		const response = await fetch("https://api.sendgrid.com/v3/mail/send", {
-            method: "POST",
-            mode: "no-cors",
-			headers: {
-				Autorization: `${sendGridKey}`,
-			},
-			body: JSON.stringify({
-				personalizations: [
-					{
-						to: [
-							{
-								email: "pinzonac@gmail.com",
-							},
-						],
-						subject: "New page Contact",
-					},
-				],
-				from: {
-					email: { email: "pinzonac@gmail.com" },
-					content: [
-						{
-							type: "text/plain",
-							value: ContactEmailTemplate(contactData),
-						},
-					],
-				},
-			}),
-		});
-
-		const responseData = await response.json();
-		console.log(`Email sent: ${responseData}`);
-		return responseData;
+		await configureSendGrid();
+		await sendGrid.send(msg);
+		console.log("Correo electrónico enviado correctamente.");
 	} catch (error) {
-		console.error("Error sending email:", error);
-		throw error;
+		console.error("Error al enviar correo electrónico:", error);
 	}
 };
+
+export default EmailSender;
