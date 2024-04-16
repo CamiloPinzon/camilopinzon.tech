@@ -3,11 +3,12 @@ import { IContactForm } from "../../utils/interfaces";
 import ContactEmailTemplate from "../../utils/email/contactEmailTemplate/contactEmailTemplate";
 
 export const EmailSender = async (contactData: IContactForm) => {
+    const sendGridKey = process.env.SENDGRID_API_KEY;
 	try {
 		const response = await fetch("https://api.sendgrid.com/v3/mail/send", {
 			method: "POST",
 			headers: {
-				Autorization: `Bearer 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`,
+				Autorization: `Bearer ${sendGridKey}`,
 			},
 			body: JSON.stringify({
 				personalizations: [
