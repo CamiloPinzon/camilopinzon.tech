@@ -1,10 +1,11 @@
-import { MailDataRequired, MailService } from "@sendgrid/mail";
+import { MailDataRequired } from "@sendgrid/mail";
 
 import { IContactForm } from "../interfaces.tsx";
 import ContactEmailTemplate from "./contactEmailTemplate/contactEmailTemplate.tsx";
 
 const EmailSender = async (emailData: IContactForm) => {
-	const sendGrid = new MailService();
+	// eslint-disable-next-line @typescript-eslint/no-var-requires
+	const sendGrid = require("@sendgrid/mail");
 
 	const configureSendGrid = () => {
 		return sendGrid.setApiKey(`${process.env.SENDGRID_API_KEY}`);
