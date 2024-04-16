@@ -6,7 +6,8 @@ export const EmailSender = async (contactData: IContactForm) => {
     const sendGridKey = process.env.SENDGRID_API_KEY;
 	try {
 		const response = await fetch("https://api.sendgrid.com/v3/mail/send", {
-			method: "POST",
+            method: "POST",
+            mode: "no-cors",
 			headers: {
 				Autorization: `Bearer ${sendGridKey}`,
 			},
