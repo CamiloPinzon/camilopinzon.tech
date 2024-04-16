@@ -39,7 +39,7 @@ const ContactForm = () => {
 	};
 
 	return (
-		<form>
+		<form onSubmit={(e) => handleSubmit(e)}>
 			<ReCAPTCHA
 				sitekey="6LcLd7wpAAAAAMkHgeO9LLlKUYjhfXGBH39qmc7A"
 				onChange={handleReCaptchaChange}
@@ -71,7 +71,7 @@ const ContactForm = () => {
 				onChange={handleChange}
 				required={true}
 			/>
-			<MainButton type="submit" text="Submit" handler={() => handleSubmit} />
+			<MainButton type="submit" text="Submit" />
 		</form>
 	);
 };

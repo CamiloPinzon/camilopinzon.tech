@@ -31,6 +31,6 @@ export interface IInput {
 
 export interface IMainButton {
 	text: string;
-	handler: () => void;
+	handler?: () => void;
 	type?: "submit" | "reset" | "button";
 }
