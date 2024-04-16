@@ -3,7 +3,7 @@ import { ReCAPTCHA } from "react-google-recaptcha";
 
 import InputComponent from "../inputComponent/inputComponent";
 import MainButton from "../mainButton/mainButton";
-import EmailSender from "../../utils/email/emailSender";
+//import EmailSender from "../../utils/email/emailSender";
 
 import { IContactForm } from "../../utils/interfaces";
 
@@ -35,14 +35,8 @@ const ContactForm = () => {
 			console.error("reCaptcha validation failed!");
 			return;
 		} else {
-			EmailSender(contactForm)
-				// eslint-disable-next-line @typescript-eslint/no-explicit-any
-				.then((responseData: unknown) => {
-					console.log(`Email sent: ${responseData}`);
-				})
-				.catch((error: Error) => {
-					console.error("Error sending email:", error);
-				});
+			console.log('Send email');
+			
 		}
 	};
 
