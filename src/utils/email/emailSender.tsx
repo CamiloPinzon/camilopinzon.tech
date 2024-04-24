@@ -8,20 +8,14 @@ const EmailSender = async (emailData: IContactForm) => {
 		email: emailData.email,
 		message: emailData.message,
 	};
-	emailjs
-		.send(
-			import.meta.env.VITESERVICE_ID!,
-			import.meta.env.VITETEMPLATE_ID!,
-			templateParams
-		)
-		.then(
-			(response) => {
-				console.log("SUCCESS!", response.status, response.text);
-			},
-			(error) => {
-				console.log("FAILED...", error);
-			}
-		);
+	emailjs.send("service_zctf1go", "template_ytxrmit", templateParams).then(
+		(response) => {
+			console.log("SUCCESS!", response.status, response.text);
+		},
+		(error) => {
+			console.log("FAILED...", error);
+		}
+	);
 };
 
 export default EmailSender;
