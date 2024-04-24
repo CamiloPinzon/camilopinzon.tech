@@ -8,6 +8,7 @@ const EmailSender = async (emailData: IContactForm) => {
 		email: emailData.email,
 		message: emailData.message,
 	};
+	emailjs.init("EarehDA7tjBLCIlpG");
 	emailjs.send("service_zctf1go", "template_ytxrmit", templateParams).then(
 		(response) => {
 			console.log("SUCCESS!", response.status, response.text);
