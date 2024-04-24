@@ -10,8 +10,8 @@ const EmailSender = async (emailData: IContactForm) => {
 	};
 	emailjs
 		.send(
-			process.env.EMAILJS_SERVICE_ID!,
-			process.env.EMAILJS_TEMPLATE_ID!,
+			import.meta.env.VITESERVICE_ID!,
+			import.meta.env.VITETEMPLATE_ID!,
 			templateParams
 		)
 		.then(
