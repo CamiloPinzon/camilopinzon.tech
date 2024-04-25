@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { experienceStructuredData } from "../../utils/SEO/seoStructuredData.js";
 import Divisor from "../../components/divisor/divisor.component.js";
 
 import { IExperienceData } from "../../utils/interfaces.js";
@@ -10,6 +11,7 @@ import "./experience.scss";
 const Experience = () => {
 	return (
 		<div className="experience">
+			{experienceStructuredData()}
 			<h2 className="text">Experience</h2>
 			{experienceData.map((experience: IExperienceData, idx: number) => (
 				<div key={idx} className="experience__item">

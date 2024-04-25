@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import { pillsStructuredData } from "../../utils/SEO/seoStructuredData";
 import Divisor from "../divisor/divisor.component";
 
 import { articlesData } from "../../utils/data/en/articles";
@@ -9,6 +10,7 @@ import './pillsPreview.styles.scss';
 const PillsPreview = () => {
 	return (
 		<div>
+			{pillsStructuredData()}
 			<h1 className="text section-title">Usefull pills for developers</h1>
 			<div>
 				{articlesData.map(({ id, name, preview, tags }, idx) => (
