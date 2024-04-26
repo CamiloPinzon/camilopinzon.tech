@@ -23,7 +23,7 @@ const EmailSender = async (emailData: IContactForm): Promise<IEmailStatus> => {
 				status = {
 					status: "success",
 					message:
-						"Your data has been sent properly, in short I will be in contact",
+						"Your data has been sent properly, in short I'll be in touch",
 				};
 			},
 			() => {
