@@ -1,13 +1,16 @@
 import emailjs from "@emailjs/browser";
 
-import { IContactForm } from "../interfaces.tsx";
+import { IContactForm, IEmailStatus } from "../interfaces.tsx";
 
-const EmailSender = async (emailData: IContactForm) => {
+let status: IEmailStatus;
+
+const EmailSender = async (emailData: IContactForm): Promise<IEmailStatus> => {
 	const templateParams = {
 		name: emailData.name,
 		email: emailData.email,
 		message: emailData.message,
 	};
+
 	emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 	emailjs
 		.send(
@@ -17,12 +20,14 @@ const EmailSender = async (emailData: IContactForm) => {
 		)
 		.then(
 			(response) => {
-				console.log("SUCCESS!", response.status, response.text);
+				status = { status: "success", message: response.text };
 			},
 			(error) => {
-				console.log("FAILED...", error);
+				status = { status: "error", message: error.text };
 			}
 		);
+
+	return status;
 };
 
 export default EmailSender;

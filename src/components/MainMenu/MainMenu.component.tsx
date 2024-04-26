@@ -1,9 +1,9 @@
 import { useState } from "react";
-
 import { Outlet, NavLink } from "react-router-dom";
 import { PiHamburger } from "react-icons/pi";
 import { CgClose } from "react-icons/cg";
 
+import ToastComponenet from "../toast/toast.component";
 import Footer from "../Footer/footer.component";
 import GoogleTerms from "../googleTerms/googleTerms";
 
@@ -18,6 +18,7 @@ const MainMenu = () => {
 
 	return (
 		<>
+			<ToastComponenet />
 			<nav className={`main-menu ${isMenuOpen ? "open" : ""}`} role="menu">
 				<div
 					className={`menu-icon ${isMenuOpen ? "" : "centered"}`}

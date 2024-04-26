@@ -43,3 +43,8 @@ export interface IToast {
 	time: number;
 	isOpen: boolean;
 }
+
+export interface IEmailStatus {
+	status: "success" | "error" | "warning";
+	message: string;
+}

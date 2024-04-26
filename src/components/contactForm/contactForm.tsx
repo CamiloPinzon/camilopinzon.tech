@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { ReCAPTCHA } from "react-google-recaptcha";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store/store";
+import { setToast } from "../../redux/toast.slice";
 
 import InputComponent from "../inputComponent/inputComponent";
 import MainButton from "../mainButton/mainButton";
@@ -10,6 +13,7 @@ import { IContactForm } from "../../utils/interfaces";
 import "./contactForm.scss";
 
 const ContactForm = () => {
+	const dispatch = useDispatch<AppDispatch>();
 	const [contactForm, setContactForm] = useState<IContactForm>({
 		name: "",
 		email: "",
@@ -35,8 +39,17 @@ const ContactForm = () => {
 			console.error("reCaptcha validation failed!");
 			return;
 		} else {
-			EmailSender(contactForm);
-			
+			EmailSender(contactForm).then((result) => {
+				result &&
+					dispatch(
+						setToast({
+							message: result.message,
+							kind: result.status,
+							time: 5000,
+							isOpen: true,
+						})
+					);
+			});
 		}
 	};
 
