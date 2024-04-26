@@ -41,4 +41,5 @@ export interface IToast {
 	message: string;
 	kind: "warning" | "error" | "success";
 	time: number;
+	isOpen: boolean;
 }
