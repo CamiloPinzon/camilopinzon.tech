@@ -17,9 +17,9 @@ const ToastComponenet = () => {
 	};
 
 	useEffect(() => {
-		isOpen && setTimeout(closeToast, time);
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [isOpen])
+		if (isOpen && time > 0) setTimeout(closeToast, time);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [isOpen]);
 
 	return (
 		<div className={`toastContainer ${isOpen ? "show" : "hide"}`}>

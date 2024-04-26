@@ -50,7 +50,6 @@ const ContactForm = () => {
 		} else {
 			try {
 				const emailResult = await EmailSender(contactForm);
-				console.log("Form: ", emailResult);
 				emailResult
 					? setToastData({
 						message: emailResult.message,
@@ -76,8 +75,8 @@ const ContactForm = () => {
 	};
 
 	useEffect(() => {
-		console.log("Effect: ", toastData);
 		toastData.message !== "" && dispatch(setToast(toastData));
+		return;
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [toastData]);
 
