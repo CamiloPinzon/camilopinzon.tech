@@ -45,6 +45,12 @@ const ContactForm = () => {
 		e.preventDefault();
 
 		if (captchaToken) {
+			setToastData({
+				message: "reCaptcha validation failed!",
+				kind: "warning",
+				time: 5000,
+				isOpen: true,
+			});
 			console.error("reCaptcha validation failed!");
 			return;
 		} else {
@@ -56,14 +62,14 @@ const ContactForm = () => {
 						kind: emailResult.status,
 						time: 5000,
 						isOpen: true,
-					}) : setToastData({
+					})
+					: setToastData({
 						message: "Error from email sender",
 						kind: "error",
 						time: 5000,
 						isOpen: true,
 					});
 			} catch (error) {
-				console.error("Error try catch");
 				setToastData({
 					message: error as string,
 					kind: "error",
