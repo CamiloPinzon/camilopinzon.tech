@@ -8,7 +8,6 @@ import { IoClose } from "react-icons/io5";
 import "./toast.styles.scss";
 const ToastComponenet = () => {
 	const dispatch = useDispatch<AppDispatch>();
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { message, kind, isOpen, time } = useSelector(
 		(state: RootState) => state.toast
 	);
@@ -19,6 +18,7 @@ const ToastComponenet = () => {
 
 	useEffect(() => {
 		isOpen && setTimeout(closeToast, time);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isOpen])
 
 	return (

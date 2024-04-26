@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ReCAPTCHA } from "react-google-recaptcha";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store/store";
@@ -8,9 +8,16 @@ import InputComponent from "../inputComponent/inputComponent";
 import MainButton from "../mainButton/mainButton";
 import EmailSender from "../../utils/email/emailSender";
 
-import { IContactForm } from "../../utils/interfaces";
+import { IContactForm, IToast } from "../../utils/interfaces";
 
 import "./contactForm.scss";
+
+const defaultToastData: IToast = {
+	message: "",
+	kind: "error",
+	time: 0,
+	isOpen: false,
+};
 
 const ContactForm = () => {
 	const dispatch = useDispatch<AppDispatch>();
@@ -19,6 +26,8 @@ const ContactForm = () => {
 		email: "",
 		message: "",
 	});
+
+	const [toastData, setToastData] = useState(defaultToastData);
 
 	const [captchaToken, setCaptchaToken] = useState<string>("");
 
@@ -32,26 +41,45 @@ const ContactForm = () => {
 		setContactForm({ ...contactForm, [e.target.name]: e.target.value });
 	};
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		if (captchaToken) {
 			console.error("reCaptcha validation failed!");
 			return;
 		} else {
-			EmailSender(contactForm).then((result) => {
-				result &&
-					dispatch(
-						setToast({
-							message: result.message,
-							kind: result.status,
-							time: 5000,
-							isOpen: true,
-						})
-					);
-			});
+			try {
+				const emailResult = await EmailSender(contactForm);
+				console.log("Form: ", emailResult);
+				emailResult
+					? setToastData({
+						message: emailResult.message,
+						kind: emailResult.status,
+						time: 5000,
+						isOpen: true,
+					}) : setToastData({
+						message: "Error from email sender",
+						kind: "error",
+						time: 5000,
+						isOpen: true,
+					});
+			} catch (error) {
+				console.error("Error try catch");
+				setToastData({
+					message: error as string,
+					kind: "error",
+					time: 5000,
+					isOpen: true,
+				});
+			}
 		}
 	};
+
+	useEffect(() => {
+		console.log("Effect: ", toastData);
+		toastData.message !== "" && dispatch(setToast(toastData));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [toastData]);
 
 	return (
 		<form onSubmit={(e) => handleSubmit(e)}>

@@ -21,11 +21,17 @@ const EmailSender = async (emailData: IContactForm): Promise<IEmailStatus> => {
 		.then(
 			(response) => {
 				status = { status: "success", message: response.text };
+				console.log("Status success");
 			},
 			(error) => {
 				status = { status: "error", message: error.text };
+				console.log("Status error 1");
 			}
-		);
+		)
+		.catch((error) => {
+			status = { status: "error", message: error.text };
+			console.log("Status error 2");
+		});
 
 	return status;
 };
