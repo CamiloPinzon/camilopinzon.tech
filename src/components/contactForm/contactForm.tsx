@@ -19,13 +19,15 @@ const defaultToastData: IToast = {
 	isOpen: false,
 };
 
+const defaultContactData: IContactForm = {
+	name: "",
+	email: "",
+	message: "",
+};
+
 const ContactForm = () => {
 	const dispatch = useDispatch<AppDispatch>();
-	const [contactForm, setContactForm] = useState<IContactForm>({
-		name: "",
-		email: "",
-		message: "",
-	});
+	const [contactForm, setContactForm] = useState<IContactForm>(defaultContactData);
 
 	const [toastData, setToastData] = useState(defaultToastData);
 
@@ -51,11 +53,11 @@ const ContactForm = () => {
 				time: 5000,
 				isOpen: true,
 			});
-			console.error("reCaptcha validation failed!");
 			return;
 		} else {
 			try {
 				const emailResult = await EmailSender(contactForm);
+				emailResult.status === 'success' && setContactForm(defaultContactData);
 				emailResult
 					? setToastData({
 						message: emailResult.message,
