@@ -1,0 +1,15 @@
+X T-001: Define Your Website Structure
+X T-002: Menu component
+X T-002: Design Your Website
+X T-003: Implement SEO Best Practices
+X T-004: Create Content for Each Section
+X T-005: Implement Contact Form Functionality
+T-006: Set Up Data Storage on Google Cloud Platform
+X T-007: Add Links to GitHub and LeetCode Pages
+T-008: internatinalization
+X T-009: Analitycs
+T-010: Test Your Website
+T-011: Check Recaptcha v2
+T-012: Disable send form button when is loading
+T-103: Internationalization
+
