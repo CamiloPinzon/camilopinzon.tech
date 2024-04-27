@@ -1,0 +1,43 @@
+{
+	"current-files-language": "en",
+	"alerts": {
+		"successForm": "Message sended successfully."
+	},
+	"nav": {
+		"home": "Home",
+		"work": "Work",
+		"pills": "Pills",
+		"contact": "Contact"
+	},
+	"footer": {
+		"legal": "© Copyright. Design And Developed By Camilo Pinzón"
+	},
+	"home": {
+		"greeting": {
+			"greet": "Hi there!",
+			"introduce": "I'm Camilo Pinzón"
+		},
+		"personal": {
+			"bio": "Self-taught and dedicated. A web developer with ability to assimilate work under pressure and great facility for teamwork, no matter if it's locally or remote. He brings his experience to find solutions for all the possible problems that can happen in all the project stages and brings calm to the customer.",
+			"contact": "Contact me"
+		},
+		"tech-stack": {
+			"main-title": "Technical Stack",
+			"commign-title": "Comming soon..."
+		}
+	},
+	"work": {
+		"title": "Some of my work"
+	},
+	"pills": {
+		"title": "Useful tips to learn and apply to your project",
+		"read-more": "Read more"
+	},
+	"contact": {
+		"title": "Let's work together, contact me!",
+		"fullName": "Full name",
+		"email": "Email",
+		"message": "Message",
+		"submit": "Submit"
+	}
+}
