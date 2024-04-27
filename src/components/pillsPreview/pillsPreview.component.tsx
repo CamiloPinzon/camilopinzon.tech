@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import GATracker from "../../utils/gaTracker";
 
 import { pillsStructuredData } from "../../utils/SEO/seoStructuredData";
 import Divisor from "../divisor/divisor.component";
@@ -8,6 +9,7 @@ import { articlesData } from "../../utils/data/en/articles";
 import './pillsPreview.styles.scss';
 
 const PillsPreview = () => {
+	GATracker();
 	return (
 		<div>
 			{pillsStructuredData()}

@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import GATracker from "../../utils/gaTracker";
 import { experienceStructuredData } from "../../utils/SEO/seoStructuredData.js";
 import Divisor from "../../components/divisor/divisor.component.js";
 
@@ -9,6 +10,7 @@ import { experienceData } from "../../utils/data/en/experience.js";
 import "./experience.scss";
 
 const Experience = () => {
+	GATracker();
 	return (
 		<div className="experience">
 			{experienceStructuredData()}
