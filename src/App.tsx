@@ -9,7 +9,7 @@ import BlogArticle from "./components/blogArticle/blogArticle.component";
 import PillsPreview from "./components/pillsPreview/pillsPreview.component";
 import Contact from "./pages/contact/contact";
 function App() {
-	ReactGA.initialize("GTM-N5KPBK9Q");
+	ReactGA.initialize("G-3HS6105HYQ");
 	return (
 		<Routes>
 			<Route path="/" element={<MainMenu />}>
