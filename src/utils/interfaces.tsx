@@ -35,7 +35,6 @@ export interface IMainButton {
 	text: string;
 	handler?: () => void;
 	type?: "submit" | "reset" | "button";
-	disabled: boolean;
 }
 
 export interface IToast {

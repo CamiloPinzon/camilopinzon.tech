@@ -33,8 +33,6 @@ const ContactForm = () => {
 
 	const [captchaToken, setCaptchaToken] = useState<string>("");
 
-	const [sendingData, setSendingData] = useState(false);
-
 	const handleReCaptchaChange = (token: string | null) => {
 		setCaptchaToken(token ?? "");
 	};
@@ -48,8 +46,6 @@ const ContactForm = () => {
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		setSendingData(true);
-
 		if (captchaToken) {
 			setToastData({
 				message: "reCaptcha validation failed!",
@@ -57,7 +53,6 @@ const ContactForm = () => {
 				time: 5000,
 				isOpen: true,
 			});
-			setSendingData(false);
 			return;
 		} else {
 			try {
@@ -76,7 +71,6 @@ const ContactForm = () => {
 						time: 5000,
 						isOpen: true,
 					});
-				setSendingData(false);
 			} catch (error) {
 				setToastData({
 					message: error as string,
@@ -84,7 +78,6 @@ const ContactForm = () => {
 					time: 5000,
 					isOpen: true,
 				});
-				setSendingData(false);
 			}
 		}
 	};
@@ -128,7 +121,7 @@ const ContactForm = () => {
 				onChange={handleChange}
 				required={true}
 			/>
-			<MainButton type="submit" text="Submit" disabled={sendingData} />
+			<MainButton type="submit" text="Submit"/>
 		</form>
 	);
 };
