@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import GATracker from "../../utils/gaTracker";
 import { useParams } from "react-router-dom";
 
 import { IArticle } from "../../utils/interfaces";
@@ -7,6 +7,7 @@ import { IArticle } from "../../utils/interfaces";
 import './blogArticle.style.scss';
 
 const BlogArticle = () => {
+	GATracker();
 	const path = useParams();
 	const [article, setArticle] = useState({} as IArticle);
 
