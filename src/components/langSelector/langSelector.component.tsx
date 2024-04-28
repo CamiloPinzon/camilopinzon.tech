@@ -16,7 +16,7 @@ const LangSelector = () => {
 	};
 
 	return (
-		<select value={currentLang} onChange={handleChangeLang}>
+		<select className="languageSelect" value={currentLang} onChange={handleChangeLang}>
 			<option value="en">{t("languages.en", { lng: currentLang })}</option>
 			<option value="es">{t("languages.es", { lng: currentLang })}</option>
 		</select>

@@ -1,0 +1,19 @@
+.languageSelect{
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+
+    &:focus {
+        outline: none;
+    }
+
+    option {
+        color: #FFF;
+        background-color: #000;
+        border: none;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+}
