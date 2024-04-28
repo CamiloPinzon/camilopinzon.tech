@@ -24,16 +24,17 @@ const BlogArticle = () => {
 	}, [article, path.id]);
 
     return (
-        <div className="article">
-            <h1 className="article__title text">{article.title}</h1>
-            <div
-                className="article__content"
-                dangerouslySetInnerHTML={{ __html: article.content }}
-            />
-            <div className="article__author text">By: {article.author}</div>
-            <div className="article__date text">Date: {article.date}</div>
-        </div>
-	);
+			<div className="article">
+				<h1 className="article__title text">{article.title}</h1>
+				<div
+					className="article__content"
+					dangerouslySetInnerHTML={{ __html: article.content }}
+				/>
+				<span className="article__author text">
+					By: {article.author} / {article.date}
+				</span>
+			</div>
+		);
 };
 
 export default BlogArticle;
