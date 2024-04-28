@@ -3,7 +3,9 @@ import { ReCAPTCHA } from "react-google-recaptcha";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store/store";
 import { setToast } from "../../redux/toast.slice";
+import { useTranslation } from "react-i18next";
 
+import GetCurrentLanguage from "../../utils/getCurrentLanguage";
 import InputComponent from "../inputComponent/inputComponent";
 import MainButton from "../mainButton/mainButton";
 import EmailSender from "../../utils/email/emailSender";
@@ -26,8 +28,11 @@ const defaultContactData: IContactForm = {
 };
 
 const ContactForm = () => {
+	const { t } = useTranslation();
+	const currentLanguage = GetCurrentLanguage();
 	const dispatch = useDispatch<AppDispatch>();
-	const [contactForm, setContactForm] = useState<IContactForm>(defaultContactData);
+	const [contactForm, setContactForm] =
+		useState<IContactForm>(defaultContactData);
 
 	const [toastData, setToastData] = useState(defaultToastData);
 
@@ -57,7 +62,7 @@ const ContactForm = () => {
 		} else {
 			try {
 				const emailResult = await EmailSender(contactForm);
-				emailResult.status === 'success' && setContactForm(defaultContactData);
+				emailResult.status === "success" && setContactForm(defaultContactData);
 				emailResult
 					? setToastData({
 						message: emailResult.message,
@@ -98,7 +103,7 @@ const ContactForm = () => {
 				type="text"
 				name="name"
 				id="name"
-				placeholder="Name"
+				placeholder={t("contact.fullName", { lng: currentLanguage })}
 				value={contactForm.name}
 				onChange={handleChange}
 				required={true}
@@ -107,7 +112,7 @@ const ContactForm = () => {
 				type="email"
 				name="email"
 				id="email"
-				placeholder="Email"
+				placeholder={t("contact.email", { lng: currentLanguage })}
 				value={contactForm.email}
 				onChange={handleChange}
 				required={true}
@@ -116,12 +121,15 @@ const ContactForm = () => {
 				type="textarea"
 				name="message"
 				id="message"
-				placeholder="Message"
+				placeholder={t("contact.message", { lng: currentLanguage })}
 				value={contactForm.message}
 				onChange={handleChange}
 				required={true}
 			/>
-			<MainButton type="submit" text="Submit"/>
+			<MainButton
+				type="submit"
+				text={t("contact.submit", { lng: currentLanguage })}
+			/>
 		</form>
 	);
 };

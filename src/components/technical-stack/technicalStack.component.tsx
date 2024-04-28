@@ -1,9 +1,14 @@
+import { useTranslation } from "react-i18next";
+import GetCurrentLanguage from "../../utils/getCurrentLanguage";
+
 import "./technicalStack.styles.scss";
 
 const TechnicalStack = () => {
+	const { t } = useTranslation();
+	const currentLanguage = GetCurrentLanguage();
 	return (
 		<section className="technical-container">
-			<h2>Technical Stack</h2>
+			<h2>{t("about.tech-stack.main-title", { lng: currentLanguage })}</h2>
 			<div className="technical-container__icons">
 				<div className="technical-container__icons__icon">
 					<img

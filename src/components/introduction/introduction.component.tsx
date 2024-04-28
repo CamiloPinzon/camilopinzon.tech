@@ -1,11 +1,15 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import MainButton from "../mainButton/mainButton";
+import GetCurrentLanguage from "../../utils/getCurrentLanguage";
 
 import ProfilePicture from "../../assets/profile-pic.webp";
 import "./introduction.styles.scss";
 
 const Introduction = () => {
+	const { t } = useTranslation();
+	const currentLanguage = GetCurrentLanguage();
 	const Navigate = useNavigate();
 	const handleButtonClick = () => {
 		Navigate("/contact");
@@ -17,14 +21,12 @@ const Introduction = () => {
 			</div>
 			<div className="introduction__item">
 				<div className="introduction__item__content">
-					<p>
-						Self-taught and dedicated. A web developer with ability to
-						assimilate work under pressure and great facility for teamwork, no
-						matter if it's locally or remote. He brings his experience to find
-						solutions for all the possible problems that can happen in all the
-						project stages and brings calm to the customer.
-					</p>
-					<MainButton text={"Get in touch"} handler={handleButtonClick} />
+					<h2>{t("about.personal.title", { lng: currentLanguage })}</h2>
+					<p>{t("about.personal.bio", { lng: currentLanguage })}</p>
+					<MainButton
+						text={t("about.personal.contact", { lng: currentLanguage })}
+						handler={handleButtonClick}
+					/>
 				</div>
 			</div>
 		</section>

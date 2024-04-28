@@ -1,3 +1,6 @@
+import { useTranslation } from "react-i18next";
+import GetCurrentLanguage from "../../utils/getCurrentLanguage";
+
 import {
     gitSVG, 
     leetSVG
@@ -5,6 +8,8 @@ import {
 import "./footer.styles.scss";
 
 const Footer = () => {
+	const { t } = useTranslation();
+	const currentLanguage = GetCurrentLanguage();
 	return (
 		<footer className="footer">
 			<div className="footer__social-container">
@@ -40,8 +45,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<p className="footer__text">
-				Copyright &copy; {new Date().getFullYear()} Camilo Pinzon. All rights
-				reserved.
+				© Copyright &copy; {new Date().getFullYear()} {t("footer.legal", { lng: currentLanguage })}
 			</p>
 		</footer>
 	);

@@ -1,23 +1,25 @@
 {
-	"current-files-language": "en",
-	"alerts": {
-		"successForm": "Message sended successfully."
+	"lang": "en",
+	"languages": {
+		"en": "English",
+		"es": "Spanish"
 	},
 	"nav": {
-		"home": "Home",
-		"work": "Work",
+		"about": "About",
+		"experience": "Experience",
 		"pills": "Pills",
 		"contact": "Contact"
 	},
 	"footer": {
-		"legal": "© Copyright. Design And Developed By Camilo Pinzón"
+		"legal": "Design And Developed By Camilo Pinzón. All Rights Reserved."
 	},
-	"home": {
+	"about": {
 		"greeting": {
 			"greet": "Hi there!",
 			"introduce": "I'm Camilo Pinzón"
 		},
 		"personal": {
+			"title": "How is Camilo Pinzón? ",
 			"bio": "Self-taught and dedicated. A web developer with ability to assimilate work under pressure and great facility for teamwork, no matter if it's locally or remote. He brings his experience to find solutions for all the possible problems that can happen in all the project stages and brings calm to the customer.",
 			"contact": "Contact me"
 		},
@@ -26,12 +28,11 @@
 			"commign-title": "Comming soon..."
 		}
 	},
-	"work": {
-		"title": "Some of my work"
+	"experience": {
+		"title": "Experience"
 	},
 	"pills": {
-		"title": "Useful tips to learn and apply to your project",
-		"read-more": "Read more"
+		"title": "Usefull pills for developers"
 	},
 	"contact": {
 		"title": "Let's work together, contact me!",

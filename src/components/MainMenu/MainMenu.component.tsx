@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { Outlet, NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { PiHamburger } from "react-icons/pi";
 import { CgClose } from "react-icons/cg";
 
 import ToastComponenet from "../toast/toast.component";
 import Footer from "../Footer/footer.component";
 import GoogleTerms from "../googleTerms/googleTerms";
+import LangSelector from "../langSelector/langSelector.component";
+import GetCurrentLanguage from "../../utils/getCurrentLanguage";
 
 import "./MainMenu.styles.scss";
 
 const MainMenu = () => {
+	const { t } = useTranslation();
+	const currentLanguage = GetCurrentLanguage();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const toggleMenu = () => {
@@ -34,23 +39,26 @@ const MainMenu = () => {
 				<ul className={`${isMenuOpen ? "open" : ""}`}>
 					<li>
 						<NavLink to={"/"} onClick={toggleMenu} role="menuitem">
-							About
+							{t("nav.about", { lng: currentLanguage })}
 						</NavLink>
 					</li>
 					<li>
 						<NavLink to={"/experience"} onClick={toggleMenu} role="menuitem">
-							Experience
+							{t("nav.experience", { lng: currentLanguage })}
 						</NavLink>
 					</li>
 					<li>
 						<NavLink to={"/pills"} onClick={toggleMenu} role="menuitem">
-							Pills
+							{t("nav.pills", { lng: currentLanguage })}
 						</NavLink>
 					</li>
 					<li>
 						<NavLink to={"/contact"} onClick={toggleMenu} role="menuitem">
-							Contact
+							{t("nav.contact", { lng: currentLanguage })}
 						</NavLink>
+					</li>
+					<li>
+						<LangSelector />
 					</li>
 				</ul>
 			</nav>

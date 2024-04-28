@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
-import GATracker from "../../utils/gaTracker";
+import { useTranslation } from "react-i18next";
 
+import GetCurrentLanguage from "../../utils/getCurrentLanguage";
+import GATracker from "../../utils/gaTracker";
 import { pillsStructuredData } from "../../utils/SEO/seoStructuredData";
 import Divisor from "../divisor/divisor.component";
 
@@ -10,10 +12,12 @@ import './pillsPreview.styles.scss';
 
 const PillsPreview = () => {
 	GATracker();
+	const { t } = useTranslation();
+	const currentLanguage = GetCurrentLanguage();
 	return (
 		<div>
 			{pillsStructuredData()}
-			<h1 className="text section-title">Usefull pills for developers</h1>
+			<h1 className="text section-title">{t("pills.title", { lng: currentLanguage })}</h1>
 			<div>
 				{articlesData.map(({ id, name, preview, tags }, idx) => (
 					<div key={id} className="item-container">

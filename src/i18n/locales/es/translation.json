@@ -1,23 +1,25 @@
 {
-	"current-files-language": "es",
-	"alerts": {
-		"successForm": "Mensaje enviado correctamente."
+	"lang": "es",
+	"languages": {
+		"en": "Inglés",
+		"es": "Español"
 	},
 	"nav": {
-		"home": "Inicio",
-		"work": "Trabajo",
+		"about": "Sobre mi",
+		"experience": "Experiencia",
 		"pills": "Pills",
 		"contact": "Contacto"
 	},
 	"footer": {
-		"legal": "© Copyright. Diseñado y desarrollado por Camilo Pinzón"
+		"legal": "Diseñado y desarrollado por Camilo Pinzón. Todos los derechos reservados."
 	},
-	"home": {
+	"about": {
 		"greeting": {
 			"greet": "¡Hola!",
 			"introduce": "Soy Camilo Pinzón"
 		},
 		"personal": {
+			"title": "¿Quién es Camilo Pinzón? ",
 			"bio": "Autodidacta y dedicado. Un desarrollador web con la capacidad de asimilar trabajo bajo presión y gran facilidad para el trabajo en equipo, ya sea de forma presencial o remota. Aporta su experiencia para encontrar soluciones a todos los posibles problemas que puedan surgir en todas las etapas del proyecto y brinda tranquilidad al cliente.",
 			"contact": "Contáctame"
 		},
@@ -26,12 +28,11 @@
 			"commign-title": "Próximamente..."
 		}
 	},
-	"work": {
-		"title": "Algo de mi trabajo"
+	"experience": {
+		"title": "Experiencia"
 	},
 	"pills": {
-		"title": "Tips útiles para aprender y aplicar en tu proyecto",
-		"read-more": "Leer más"
+		"title": "Pills útiles para adesarrolladores"
 	},
 	"contact": {
 		"title": "Trabajemos juntos, ¡Contáctame!",

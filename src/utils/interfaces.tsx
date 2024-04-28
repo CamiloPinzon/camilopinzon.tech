@@ -48,3 +48,11 @@ export interface IEmailStatus {
 	status: "success" | "error" | "warning";
 	message: string;
 }
+
+export interface IExperienceData {
+	company: string;
+	position: string;
+	projects: string[];
+	responsibilities: string[];
+	dates: string;
+}

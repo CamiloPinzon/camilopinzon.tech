@@ -1,20 +1,29 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useTranslation } from "react-i18next";
+import GetCurrentLanguage from "../../utils/getCurrentLanguage.js";
+
 import GATracker from "../../utils/gaTracker";
 import { experienceStructuredData } from "../../utils/SEO/seoStructuredData.js";
 import Divisor from "../../components/divisor/divisor.component.js";
-
 import { IExperienceData } from "../../utils/interfaces.js";
-
-import { experienceData } from "../../utils/data/en/experience.js";
+import { experienceDataEn, experienceDataEs } from "../../utils/data/en/experience.js";
 
 import "./experience.scss";
 
 const Experience = () => {
 	GATracker();
+	const { t } = useTranslation();
+	const currentLanguage = GetCurrentLanguage();
+	let experienceData: (IExperienceData)[];
+
+	currentLanguage === "es" ? experienceData = experienceDataEs : experienceData = experienceDataEn
+
 	return (
 		<div className="experience">
 			{experienceStructuredData()}
-			<h2 className="text">Experience</h2>
+			<h2 className="text">
+				{t("experience.title", { lng: currentLanguage })}
+			</h2>
 			{experienceData.map((experience: IExperienceData, idx: number) => (
 				<div key={idx} className="experience__item">
 					<h3 className="experience__item__company text">
