@@ -12,7 +12,7 @@ const scriptData = () => (
 				name: "Camilo Pinzon",
 				legalName: "Camilo Pinzon",
 				url: "https://camilopinzon.tech",
-				logo: "https://camilopinzon.tech/images/profile-pic.webp",
+				logo: "https://camilopinzon.tech/images/profile-pic-fb.png",
 			}),
 		}}
 	/>
@@ -37,7 +37,7 @@ export const aboutStructuredData = () => (
 		<meta property="og:title" content={tilte} />
 		<meta
 			property="og:image"
-			content="https://camilopinzon.tech/images/profile-pic.webp"
+			content="https://camilopinzon.tech/images/profile-pic-fb.png"
 		/>
 		<link
 			rel="icon"
