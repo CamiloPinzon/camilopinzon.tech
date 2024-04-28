@@ -58,6 +58,15 @@ const MainMenu = () => {
 						</NavLink>
 					</li>
 					<li>
+						<a
+							href={`/public/downloads/CV-${currentLanguage}-2024.pdf`}
+							target="_blank"
+							download
+						>
+							{t("nav.download", { lng: currentLanguage })}
+						</a>
+					</li>
+					<li>
 						<LangSelector />
 					</li>
 				</ul>
