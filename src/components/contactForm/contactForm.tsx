@@ -33,10 +33,9 @@ const ContactForm = () => {
 	const dispatch = useDispatch<AppDispatch>();
 	const [contactForm, setContactForm] =
 		useState<IContactForm>(defaultContactData);
-
 	const [toastData, setToastData] = useState(defaultToastData);
-
 	const [captchaToken, setCaptchaToken] = useState<string>("");
+	const [sending, setSending] = useState(false);
 
 	const handleReCaptchaChange = (token: string | null) => {
 		setCaptchaToken(token ?? "");
@@ -50,6 +49,7 @@ const ContactForm = () => {
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		setSending(true);
 
 		if (captchaToken) {
 			setToastData({
@@ -58,6 +58,7 @@ const ContactForm = () => {
 				time: 5000,
 				isOpen: true,
 			});
+			setSending(false);
 			return;
 		} else {
 			try {
@@ -76,6 +77,7 @@ const ContactForm = () => {
 						time: 5000,
 						isOpen: true,
 					});
+				setSending(false);
 			} catch (error) {
 				setToastData({
 					message: error as string,
@@ -83,6 +85,7 @@ const ContactForm = () => {
 					time: 5000,
 					isOpen: true,
 				});
+				setSending(false);
 			}
 		}
 	};
@@ -126,10 +129,12 @@ const ContactForm = () => {
 				onChange={handleChange}
 				required={true}
 			/>
-			<MainButton
-				type="submit"
-				text={t("contact.submit", { lng: currentLanguage })}
-			/>
+			{!sending && (
+				<MainButton
+					type="submit"
+					text={t("contact.submit", { lng: currentLanguage })}
+				/>
+			)}
 		</form>
 	);
 };
