@@ -5,23 +5,22 @@ export const article = [
 		author: "Camilo Pinzón",
 		content: `<article class="articleText">
     <p>Imagine that you're in a country where the people don't speak any known language. How do you ask someone for any task? Well, this problem exist when you pass any javascript code to the computer, they don't know how to read or interpret it and this is the reason for the Javascript engine, basically the javascript engine it's a translator that convert the javascript code to to machine language to be interpreted.</p>
-	<p>Now days exist a lot of js engines some of the most popular are:
-		<ul>
-			<li>
-				<a href='https://spidermonkey.dev' rel='noopener' target='_blank'>SpiderMonkey</a>: first js engine, developed by Brendan Eich in 1995 when he was working for Netscape, currently this engine is used by firefox
-			</li>
-			<li>
-				<a href='https://v8.dev/' rel='noopener' target='_blank' >V8</a>: Developed by google to achieve the high performance demands of google maps
-			</li>
-			<li>
-				<a href='https://developer.apple.com/documentation/javascriptcore' rel='noopener' target='_blank' >JavaScriptCore</a>:  A JavaScript interpreter, used in the WebKit project and applications such as Safari.
-			</li>
-		</ul>
-		<span>There is a list of some of the most popular engines. <a href='https://en.wikipedia.org/wiki/List_of_ECMAScript_engines' rel='noopener', target='_blank' >Link!</a></span>
-	</p>
+	<p>Now days exist a lot of js engines some of the most popular are:</p>
+	<ul>
+		<li>
+			<a href='https://spidermonkey.dev' rel='noopener' target='_blank'>SpiderMonkey</a>: first js engine, developed by Brendan Eich in 1995 when he was working for Netscape, currently this engine is used by firefox
+		</li>
+		<li>
+			<a href='https://v8.dev/' rel='noopener' target='_blank' >V8</a>: Developed by google to achieve the high performance demands of google maps
+		</li>
+		<li>
+			<a href='https://developer.apple.com/documentation/javascriptcore' rel='noopener' target='_blank' >JavaScriptCore</a>:  A JavaScript interpreter, used in the WebKit project and applications such as Safari.
+		</li>
+	</ul>
+	<span>There is a list of some of the most popular engines. <a href='https://en.wikipedia.org/wiki/List_of_ECMAScript_engines' rel='noopener', target='_blank' >Link!</a></span>
 	</br>
 	<h2>What happens inside the js engine?</h2>
-	<picture style='display: flex; justify-content: center; align-items: center; margin: 50px;'>
+	<picture style='display: flex; justify-content: center; align-items: center; margin: 30px;'>
 		<img
 		src='/images/js-engine.webp'
 		alt='Js Engine'
