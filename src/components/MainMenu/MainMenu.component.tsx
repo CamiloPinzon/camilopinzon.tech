@@ -67,7 +67,7 @@ const MainMenu = () => {
 						</a>
 					</li>
 					<li>
-						<LangSelector />
+						<LangSelector fnOnCLick={toggleMenu} />
 					</li>
 				</ul>
 			</nav>
