@@ -33,7 +33,13 @@ const MainMenu = () => {
 				</div>
 				<div className="siteNmae">
 					<NavLink to={"/"} onClick={toggleMenu} role="menuitem">
-						Camilo Pinzón
+						<img
+							src="https://camilopinzon.tech/images/logo.png"
+							alt="Camilo Pinzón"
+							width="70"
+							height="auto"
+						/>
+						<span>Camilo Pinzón</span>
 					</NavLink>
 				</div>
 				<ul className={`${isMenuOpen ? "open" : ""}`}>
