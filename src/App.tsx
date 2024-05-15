@@ -8,6 +8,7 @@ import Pills from "./pages/pills/pills";
 import BlogArticle from "./components/blogArticle/blogArticle.component";
 import PillsPreview from "./components/pillsPreview/pillsPreview.component";
 import Contact from "./pages/contact/contact";
+import NotFound from "./pages/404/404";
 function App() {
 	ReactGA.initialize("G-3HS6105HYQ");
 	return (
@@ -20,6 +21,7 @@ function App() {
 					<Route path=":id" element={<BlogArticle />} />
 				</Route>
 				<Route path="contact" element={<Contact />} />
+				<Route path="*" element={<NotFound />} />
 			</Route>
 		</Routes>
 	);

@@ -41,5 +41,8 @@
 		"email": "Correo electrónico",
 		"message": "Mensaje",
 		"submit": "Enviar"
+	},
+	"404": {
+		"message": "404 - Página no encontrada"
 	}
 }

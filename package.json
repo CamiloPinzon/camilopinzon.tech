@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-ga": "^3.3.1",
     "react-google-recaptcha": "^3.1.0",
+    "react-google-recaptcha-v3": "^1.10.1",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.51.3",
     "react-i18next": "^14.1.1",

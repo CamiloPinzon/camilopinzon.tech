@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { ReCAPTCHA } from "react-google-recaptcha";
+import {
+	GoogleReCaptchaProvider,
+	GoogleReCaptcha,
+} from "react-google-recaptcha-v3";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store/store";
 import { setToast } from "../../redux/toast.slice";
@@ -10,7 +13,7 @@ import InputComponent from "../inputComponent/inputComponent";
 import MainButton from "../mainButton/mainButton";
 import EmailSender from "../../utils/email/emailSender";
 
-import { IContactForm, IToast } from "../../utils/interfaces";
+import { IContactForm, IToast, IToken } from "../../utils/interfaces";
 
 import "./contactForm.scss";
 
@@ -27,6 +30,10 @@ const defaultContactData: IContactForm = {
 	message: "",
 };
 
+const defaultToken: IToken = {
+	token: null,
+};
+
 const ContactForm = () => {
 	const { t } = useTranslation();
 	const currentLanguage = GetCurrentLanguage();
@@ -34,12 +41,8 @@ const ContactForm = () => {
 	const [contactForm, setContactForm] =
 		useState<IContactForm>(defaultContactData);
 	const [toastData, setToastData] = useState(defaultToastData);
-	const [captchaToken, setCaptchaToken] = useState<string>("");
+	const [token, setToken] = useState(defaultToken.token);
 	const [sending, setSending] = useState(false);
-
-	const handleReCaptchaChange = (token: string | null) => {
-		setCaptchaToken(token ?? "");
-	};
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -51,42 +54,35 @@ const ContactForm = () => {
 		e.preventDefault();
 		setSending(true);
 
-		if (captchaToken) {
-			setToastData({
-				message: "reCaptcha validation failed!",
-				kind: "warning",
-				time: 5000,
-				isOpen: true,
-			});
-			setSending(false);
+		if (!token) {
+			console.error("reCAPTCHA verification failed");
 			return;
-		} else {
-			try {
-				const emailResult = await EmailSender(contactForm);
-				emailResult.status === "success" && setContactForm(defaultContactData);
-				emailResult
-					? setToastData({
-						message: emailResult.message,
-						kind: emailResult.status,
-						time: 5000,
-						isOpen: true,
-					})
-					: setToastData({
-						message: "Error from email sender",
-						kind: "error",
-						time: 5000,
-						isOpen: true,
-					});
-				setSending(false);
-			} catch (error) {
-				setToastData({
-					message: error as string,
+		}
+		try {
+			const emailResult = await EmailSender(contactForm);
+			emailResult.status === "success" && setContactForm(defaultContactData);
+			emailResult
+			? setToastData({
+					message: emailResult.message,
+					kind: emailResult.status,
+					time: 5000,
+					isOpen: true,
+				})
+			: setToastData({
+					message: "Error from email sender",
 					kind: "error",
 					time: 5000,
 					isOpen: true,
 				});
-				setSending(false);
-			}
+			setSending(false);
+		} catch (error) {
+			setToastData({
+				message: error as string,
+				kind: "error",
+				time: 5000,
+				isOpen: true,
+			});
+			setSending(false);
 		}
 	};
 
@@ -97,45 +93,44 @@ const ContactForm = () => {
 	}, [toastData]);
 
 	return (
-		<form onSubmit={(e) => handleSubmit(e)}>
-			<ReCAPTCHA
-				sitekey="6LcLd7wpAAAAAMkHgeO9LLlKUYjhfXGBH39qmc7A"
-				onChange={handleReCaptchaChange}
-			/>
-			<InputComponent
-				type="text"
-				name="name"
-				id="name"
-				placeholder={t("contact.fullName", { lng: currentLanguage })}
-				value={contactForm.name}
-				onChange={handleChange}
-				required={true}
-			/>
-			<InputComponent
-				type="email"
-				name="email"
-				id="email"
-				placeholder={t("contact.email", { lng: currentLanguage })}
-				value={contactForm.email}
-				onChange={handleChange}
-				required={true}
-			/>
-			<InputComponent
-				type="textarea"
-				name="message"
-				id="message"
-				placeholder={t("contact.message", { lng: currentLanguage })}
-				value={contactForm.message}
-				onChange={handleChange}
-				required={true}
-			/>
-			{!sending && (
-				<MainButton
-					type="submit"
-					text={t("contact.submit", { lng: currentLanguage })}
+		<GoogleReCaptchaProvider reCaptchaKey="6LcLd7wpAAAAAMkHgeO9LLlKUYjhfXGBH39qmc7A">
+			<form onSubmit={(e) => handleSubmit(e)}>
+				<InputComponent
+					type="text"
+					name="name"
+					id="name"
+					placeholder={t("contact.fullName", { lng: currentLanguage })}
+					value={contactForm.name}
+					onChange={handleChange}
+					required={true}
 				/>
-			)}
-		</form>
+				<InputComponent
+					type="email"
+					name="email"
+					id="email"
+					placeholder={t("contact.email", { lng: currentLanguage })}
+					value={contactForm.email}
+					onChange={handleChange}
+					required={true}
+				/>
+				<InputComponent
+					type="textarea"
+					name="message"
+					id="message"
+					placeholder={t("contact.message", { lng: currentLanguage })}
+					value={contactForm.message}
+					onChange={handleChange}
+					required={true}
+				/>
+				<GoogleReCaptcha onVerify={(response) => setToken(response)} />
+				{!sending && (
+					<MainButton
+						type="submit"
+						text={t("contact.submit", { lng: currentLanguage })}
+					/>
+				)}
+			</form>
+		</GoogleReCaptchaProvider>
 	);
 };
 

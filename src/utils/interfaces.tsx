@@ -56,3 +56,7 @@ export interface IExperienceData {
 	responsibilities: string[];
 	dates: string;
 }
+
+export interface IToken {
+	token: string | null;
+}
