@@ -32,11 +32,8 @@ const TechnicalStack = () => {
 					<p>TypeScript</p>
 				</div>
 				<div className="technical-container__icons__icon">
-					<img
-						src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-						alt="nodejs"
-					/>
-					<p>Node.js</p>
+					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt="wordpress" />
+					<p>Wordpress</p>
 				</div>
 				<div className="technical-container__icons__icon">
 					<img
