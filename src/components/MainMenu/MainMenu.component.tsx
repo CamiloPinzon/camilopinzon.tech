@@ -65,7 +65,7 @@ const MainMenu = () => {
 					</li>
 					<li>
 						<a
-							href={`/public/downloads/CV-${currentLanguage}-2024.pdf`}
+							href={`/downloads/CV-${currentLanguage}-2024.pdf`}
 							target="_blank"
 							download
 						>
