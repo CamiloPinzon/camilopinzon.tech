@@ -1,0 +1,11 @@
+/downloads/CV-en-2024.pdf
+  Content-Type: application/pdf
+  Content-Disposition: attachment
+
+/downloads/CV-es-2024.pdf
+  Content-Type: application/pdf
+  Content-Disposition: attachment
+
+/*
+  Content-Type: application/octet-stream
+  Content-Disposition: attachment
