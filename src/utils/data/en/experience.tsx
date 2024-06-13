@@ -1,5 +1,19 @@
 export const experienceDataEn = [
 	{
+		company: "Freelancer",
+		position: "Web Developer",
+		projects: ["AltaPlaza", "Epic Media", "Ostbricka", ],
+		responsibilities: [
+			"Building custom widgetss",
+			"Creating child themes",
+			"Creating to WooCommerce components",
+			"Implementing tailored new features to each project",
+			"Optimize and avoid the overuse of third - party plugins",
+			"Implementing new measures to preventing poor site performance and security vulnerabilities.",
+		],
+		dates: "January 2024",
+	},
+	{
 		company: "Huge",
 		position: "Semi-senior Software Engineer",
 		projects: ["GPay", "GoogleWallet"],
@@ -62,6 +76,20 @@ export const experienceDataEn = [
 
 export const experienceDataEs = [
 	{
+		company: "Freelancer",
+		position: "Web Developer",
+		projects: ["AltaPlaza", "Epic Media", "Ostbricka"],
+		responsibilities: [
+			"Construir custom widgets",
+			"Crear child themes",
+			"Crear componentes de WooCommerce",
+			"Implementar soluciones a la medida para cada proyecto",
+			"Optimizar y evitar el uso excessivo de complementos de terceros",
+			"Implementar nuevas medidas para prevenir el bajo rendimiento y vulnerabilidades de seguridad.",
+		],
+		dates: "Enero 2024",
+	},
+	{
 		company: "Huge",
 		position: "Semi-senior Software Engineer",
 		projects: ["GPay", "GoogleWallet"],
@@ -117,7 +145,6 @@ export const experienceDataEs = [
 		responsibilities: [
 			"Desarrollar sitios web usando HTML5, jQuery, y Bootstrap.",
 			"Liderar proyectos como el Chocolates Jet 'Álbum Planeta Sorprendente,' coordinando las comunicaciones con equipos remotos.",
-			
 		],
 		dates: "Junio 2012 - Enero 2017",
 	},
