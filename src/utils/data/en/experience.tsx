@@ -6,7 +6,7 @@ export const experienceDataEn = [
 		responsibilities: [
 			"Building custom widgetss",
 			"Creating child themes",
-			"Creating to WooCommerce components",
+			"Creating WooCommerce components",
 			"Implementing tailored new features to each project",
 			"Optimize and avoid the overuse of third - party plugins",
 			"Implementing new measures to preventing poor site performance and security vulnerabilities.",
